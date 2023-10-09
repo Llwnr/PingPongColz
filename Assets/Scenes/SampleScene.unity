@@ -315,10 +315,10 @@ GameObject:
   m_Component:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
-  - component: {fileID: 519420029}
   - component: {fileID: 519420033}
   - component: {fileID: 519420030}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420029}
   m_Layer: 8
   m_Name: Main Camera(Post process)
   m_TagString: MainCamera
@@ -326,14 +326,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &519420029
-AudioListener:
+--- !u!114 &519420029
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!114 &519420030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1054,6 +1059,7 @@ GameObject:
   - component: {fileID: 1000719808}
   - component: {fileID: 1000719807}
   - component: {fileID: 1000719806}
+  - component: {fileID: 1000719809}
   m_Layer: 8
   m_Name: WallUp
   m_TagString: Wall
@@ -1151,6 +1157,27 @@ Transform:
   m_Father: {fileID: 1650294768}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1000719809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000719805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c578df1cb6e3bc74891e2bd83ccf7352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx:
+    Guid:
+      Data1: -334691975
+      Data2: 1190866788
+      Data3: 481775499
+      Data4: 740630720
+    Path: event:/WallCol
+  colliderTags:
+  - Ball
 --- !u!1 &1200605945
 GameObject:
   m_ObjectHideFlags: 0
@@ -1394,6 +1421,7 @@ GameObject:
   - component: {fileID: 1221278131}
   - component: {fileID: 1221278130}
   - component: {fileID: 1221278129}
+  - component: {fileID: 1221278132}
   m_Layer: 8
   m_Name: WallDown
   m_TagString: Wall
@@ -1491,6 +1519,27 @@ Transform:
   m_Father: {fileID: 1650294768}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1221278132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221278128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c578df1cb6e3bc74891e2bd83ccf7352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx:
+    Guid:
+      Data1: -334691975
+      Data2: 1190866788
+      Data3: 481775499
+      Data4: 740630720
+    Path: event:/WallCol
+  colliderTags:
+  - Ball
 --- !u!1 &1271068827
 GameObject:
   m_ObjectHideFlags: 0

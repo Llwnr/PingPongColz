@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: ../../FMOD Studio/PingPong/ballColSfx/Build/Desktop/Master.bank
   Name: Build/Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 638294523488513474
+  lastModified: 638294531848874356
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -40,7 +40,7 @@ MonoBehaviour:
   - {fileID: -4995646532081533991}
   StringsBanks:
   - {fileID: 8262216906404147030}
-  cacheTime: 638294523488583479
+  cacheTime: 638294531848904436
   cacheVersion: 131607
 --- !u!114 &3777721019780719390
 MonoBehaviour:
@@ -68,7 +68,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 615
+  Length: 260
 --- !u!114 &8262216906404147030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,7 +84,7 @@ MonoBehaviour:
   Path: ../../FMOD Studio/PingPong/ballColSfx/Build/Desktop/Master.strings.bank
   Name: Build/Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638294523488583479
+  lastModified: 638294531848904436
   FileSizes:
   - Name: 
     Value: 756
