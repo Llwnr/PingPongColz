@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DisplayStuff : MonoBehaviour
 {   
@@ -9,8 +7,9 @@ public class DisplayStuff : MonoBehaviour
     }
 
     public void ShowGameobject(GameObject obj){
-        obj.SetActive(true);
-        //Hide the button option
+        //Hide the current section
         UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject.transform.parent.gameObject.SetActive(false);
+        //Show the linked section
+        obj.SetActive(true);
     }
 }

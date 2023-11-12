@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerupCreator : MonoBehaviour
+public class PowerupCreator : MonoBehaviour, IGotReset
 {
     [SerializeField]private GameObject powerupTrigger, powerupHolder;
+    private PowerupGiver powerupGiver;
     [SerializeField]private float durationForPowerup;
     private float durationCount;
 
@@ -12,6 +13,11 @@ public class PowerupCreator : MonoBehaviour
     
     private void Start() {
         ResetDuration();
+        ResetBallPosition.AddResetObserver(this);
+    }
+
+    private void OnDisable() {
+        ResetBallPosition.RemoveResetObserver(this);
     }
 
     private void Update() {
@@ -31,10 +37,17 @@ public class PowerupCreator : MonoBehaviour
     void CreatePowerup(){
         //Make a random powerup
         int index = Random.Range(0, allPowerups.Count);
-        PowerupGiver powerupGiver = Instantiate(powerupTrigger, Vector3.zero, Quaternion.identity).GetComponent<PowerupGiver>();
+        powerupGiver = Instantiate(powerupTrigger, Vector3.zero, Quaternion.identity).GetComponent<PowerupGiver>();
         powerupGiver.GivePowerup(allPowerups[index]);
         
         powerupGiver.transform.SetParent(powerupHolder.transform, false);
     }
 
+    //Reset creation duration when game resets
+    public void OnResetNotify()
+    {
+        ResetDuration();
+        //Also delete created powerups
+        if(powerupGiver) Destroy(powerupGiver.gameObject);
+    }
 }

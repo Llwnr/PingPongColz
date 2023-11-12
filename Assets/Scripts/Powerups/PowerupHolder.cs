@@ -12,16 +12,20 @@ public class PowerupHolder : MonoBehaviour, IGotReset
         SubscribeToResetObserver();
     }
 
+    private void OnDisable() {
+        ResetBallPosition.RemoveResetObserver(this);
+    }
+
     private void Update() {
         RunPowerupsUpdateFunction();
     }
 
     //Manage Observer
     void SubscribeToResetObserver(){
-        GameObject.FindWithTag("GameManager").GetComponent<ResetBallPosition>().AddResetObserver(this);
+        ResetBallPosition.AddResetObserver(this);
     }
 
-    public void OnNotify(){
+    public void OnResetNotify(){
         RemoveAllPowerups();
     }
     

@@ -21,6 +21,7 @@ public class CreateScoreData : MonoBehaviour
         return playerScoresList;
     }
 
+    //To create UI elements that will display the scores read from data
     void CreateScoreHistory(){
         List<PointsManager.PlayerScores> playerScoresList = ReadScoreData();
         for(int i=0; i<playerScoresList.Count; i++){

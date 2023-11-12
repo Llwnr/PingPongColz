@@ -9,6 +9,8 @@ public class BallMovement : MonoBehaviour
     [SerializeField]private float force, maxVelocity;
     private float extraVelocity = 0;
 
+    public float angle;
+
     [SerializeField] private ResetBallPosition resetBallPosition;
 
     private Vector2 lastVelocity;
@@ -43,39 +45,50 @@ public class BallMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.transform.CompareTag("Wall") || other.transform.CompareTag("Racket")){
+            
             float speed = lastVelocity.magnitude;
             Vector2 reflectDir = Vector2.Reflect(lastVelocity, other.contacts[0].normal).normalized;
             rb.velocity = new Vector2(reflectDir.x*speed, reflectDir.y*speed);
+
+            //If the ball goes at the same direction even after reflecting, make it go opposite direction
+            if (other.transform.CompareTag("Racket") && Mathf.Sign(rb.velocity.x) == Mathf.Sign(lastVelocity.x)) {
+                rb.velocity = new Vector2(rb.velocity.x * -1, rb.velocity.y);
+            }
+
+            if(other.transform.CompareTag("Racket"))    StartCoroutine(LimitAngle());
         }
     }
 
-    void ManageDirection(){
-        Vector2 ballDir = rb.velocity.normalized;
-        //Convert direction into angle
-        float myAngle = Mathf.Atan2(ballDir.y, ballDir.x)*Mathf.Rad2Deg;
-        if(myAngle > -30 && myAngle < 30 || myAngle > 150 && myAngle < 210) return;
-        //Don't let ball be too vertical
-        float angleA = 70, angleB = 110;
-        if(myAngle < -angleA && myAngle > -90){
-            myAngle = -angleA;
-        }
-        if(myAngle < -90 && myAngle > -angleB){
-            myAngle = -angleB;
-        }
-        if(myAngle > angleA && myAngle < 90){
-            myAngle = angleA;
-        }
-        if(myAngle > 90 && myAngle < angleB){
-            myAngle = angleB;
+    //Don't let ball go too vertical
+    IEnumerator LimitAngle() {
+        yield return new WaitForEndOfFrame();
+        Vector2 dir = rb.velocity;
+        float speed = dir.magnitude;
+        angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+        //Convert negative angles to positive
+        if (Mathf.Sign(angle) == -1) {
+            angle += 360;
         }
 
-        //Convert the angle to velocity
-        float speed = rb.velocity.magnitude;
-        Vector2 newDir;
-        newDir.x = Mathf.Cos(myAngle*Mathf.Deg2Rad);
-        newDir.y = Mathf.Sign(myAngle*Mathf.Deg2Rad);
-        rb.velocity = newDir*speed;
+        //For ball going right side
+        if (angle > 60 && angle <= 90) {
+            angle = 60;
+        }
+        else if (angle >= 270 && angle < 300) {
+            angle = 300;
+        }
+
+        //For ball going left side
+        if (angle > 240 && angle <= 270) {
+            angle = 240;
+        }
+        else if (angle >= 90 && angle < 120) {
+            angle = 120;
+        }
+
+        //Direct ball to given angle
+        dir = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad) , Mathf.Sin(angle * Mathf.Deg2Rad));
+        rb.velocity = dir * speed;
     }
-
-
 }

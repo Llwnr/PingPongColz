@@ -9,7 +9,8 @@ public class LoginManager : MonoBehaviour
 {
     [SerializeField]private TMP_InputField username, password;
     [SerializeField]private PlayersReady playersReadyManager;
-
+    protected string saveFileName = "/UserRegistrationData.txt";
+    //Handles Registration
     public void StoreCredentials(){
         string uname = username.text;
         string pw = password.text;
@@ -17,8 +18,9 @@ public class LoginManager : MonoBehaviour
         //Make/Access the save file to update it
         RegisterDataHolder registerDataHolder;
         List<RegisterData> registerDataList;
-        if(File.Exists(Application.dataPath + "/save.txt")){
-            string loadedData = File.ReadAllText(Application.dataPath + "/save.txt");
+        Debug.Log(Application.dataPath + saveFileName);
+        if(File.Exists(Application.dataPath + saveFileName)){
+            string loadedData = File.ReadAllText(Application.dataPath + saveFileName);
             registerDataHolder = JsonUtility.FromJson<RegisterDataHolder>(loadedData);
             registerDataList = registerDataHolder.registerDatas.ToList();
         }else{
@@ -36,13 +38,14 @@ public class LoginManager : MonoBehaviour
         //Then serialize it
         string json = JsonUtility.ToJson(registerDataHolder);
         Debug.Log(json);
-        File.WriteAllText(Application.dataPath + "/save.txt", json);
+        File.WriteAllText(Application.dataPath + saveFileName, json);
     }
 
+    //For verification of user 1
     public void CheckCredentialsP1(){
-        if(File.Exists(Application.dataPath + "/save.txt")){
+        if(File.Exists(Application.dataPath + saveFileName)){
             //Load the save file to an array
-            string loadedData = File.ReadAllText(Application.dataPath + "/save.txt");
+            string loadedData = File.ReadAllText(Application.dataPath + saveFileName);
             List<RegisterData> myLoginDatas = JsonUtility.FromJson<RegisterDataHolder>(loadedData).registerDatas.ToList();
             //Check if the login username & password matches any of the registered data
             foreach(RegisterData registerData in myLoginDatas){
@@ -60,10 +63,11 @@ public class LoginManager : MonoBehaviour
         }
     }
 
+    //For verification of user 2
     public void CheckCredentialsP2(){
-        if(File.Exists(Application.dataPath + "/save.txt")){
+        if(File.Exists(Application.dataPath + saveFileName)){
             //Load the save file to an array
-            string loadedData = File.ReadAllText(Application.dataPath + "/save.txt");
+            string loadedData = File.ReadAllText(Application.dataPath + saveFileName);
             List<RegisterData> myLoginDatas = JsonUtility.FromJson<RegisterDataHolder>(loadedData).registerDatas.ToList();
             //Check if the login username & password matches any of the registered data
             foreach(RegisterData registerData in myLoginDatas){

@@ -6,19 +6,19 @@ using TMPro;
 public class ResetBallPosition : MonoBehaviour
 {
     //OBSERVER function for scripts to get notified when the ball resets
-    private List<IGotReset> resetObservers = new List<IGotReset>();
+    private static List<IGotReset> resetObservers = new List<IGotReset>();
 
-    public void AddResetObserver(IGotReset resetObserver){
+    public static void AddResetObserver(IGotReset resetObserver){
         resetObservers.Add(resetObserver);
     }
-    public void RemoveResetObserver(IGotReset resetObserver){
+    public static void RemoveResetObserver(IGotReset resetObserver){
         resetObservers.Remove(resetObserver);
     }
 
-    public void NotifyReset()
+    public static void NotifyReset()
     {
         foreach(IGotReset resetObserver in resetObservers){
-            resetObserver.OnNotify();
+            resetObserver.OnResetNotify();
         }
     }
 

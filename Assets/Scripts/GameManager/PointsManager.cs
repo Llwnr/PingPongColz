@@ -80,9 +80,9 @@ public class PointsManager : MonoBehaviour
     }
 
     void SaveScoreHistory(){
-        //Load the saved file data to update it
         PlayerScoresHolder playerScoresHolder;
         List<PlayerScores> playerScoresList;
+        //Load the saved file data to update it
         if(File.Exists(Application.dataPath + "/scoreSave.txt")){
             string loadedData = File.ReadAllText(Application.dataPath + "/scoreSave.txt");
             playerScoresHolder = JsonUtility.FromJson<PlayerScoresHolder>(loadedData);

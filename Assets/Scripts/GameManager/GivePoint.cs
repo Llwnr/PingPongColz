@@ -11,9 +11,9 @@ public class GivePoint : MonoBehaviour
         if(other.transform.CompareTag("Ball")){
             //Increase the point
             if(leftPlayerSide){
-                PointsManager.instance.GivePoint(1);                
+                PointsManager.instance.GivePoint(1);//Give point to player1       
             }else{
-                PointsManager.instance.GivePoint(2);                
+                PointsManager.instance.GivePoint(2);//Give point to player 2              
             }
             //Update to show in text
             PointsManager.instance.UpdateScores();
