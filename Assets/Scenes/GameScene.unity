@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 164478875}
   - component: {fileID: 164478876}
   - component: {fileID: 164478877}
+  - component: {fileID: 164478878}
   m_Layer: 0
   m_Name: GameManagers
   m_TagString: GameManager
@@ -186,6 +187,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftTextbox: {fileID: 1362027170}
   rightTextbox: {fileID: 936640289}
+  sfx:
+    Guid:
+      Data1: 1472858409
+      Data2: 1079229845
+      Data3: -286880872
+      Data4: -53861548
+    Path: event:/PointWin
 --- !u!114 &164478874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,7 +225,7 @@ MonoBehaviour:
   powerupTrigger: {fileID: 4462948987805631880, guid: 06bfee1b91c9a3b4a9374edb444cab89,
     type: 3}
   powerupHolder: {fileID: 745681071}
-  durationForPowerup: 5
+  durationForPowerup: 2
   allPowerups:
   - {fileID: 11400000, guid: b5f2b6535a720a94a9d0349a6403138d, type: 2}
   - {fileID: 11400000, guid: e46a540a7ce33394b9d9f282c4fd3456, type: 2}
@@ -245,6 +253,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c57ac8f7932c976469b20c2b4791e3a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &164478878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164478870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48a2621692ab7c74e8c52c194dea8faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgm:
+    Guid:
+      Data1: -1863899860
+      Data2: 1269500952
+      Data3: -183510904
+      Data4: 1510437989
+    Path: event:/BgmAdhesive
 --- !u!1 &318932015
 GameObject:
   m_ObjectHideFlags: 0
@@ -921,8 +948,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 1040187391
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.23921569}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1057,8 +1084,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 1040187391
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.23921569}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1717,6 +1744,7 @@ GameObject:
   - component: {fileID: 1355136361}
   - component: {fileID: 1355136363}
   - component: {fileID: 1355136364}
+  - component: {fileID: 1355136365}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -1842,8 +1870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dir: {x: 0.05, y: -0.7}
   force: 500
-  maxVelocity: 8
-  angle: 0
+  maxVelocity: 15
   resetBallPosition: {fileID: 164478874}
 --- !u!114 &1355136364
 MonoBehaviour:
@@ -1859,6 +1886,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 8995348207899407594, guid: 2497606d9893cec4e9128109c14221a9,
     type: 3}
+--- !u!114 &1355136365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355136358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 034c39824b6635a4c9aa5ac4bd905306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounceAfterPush: 0
 --- !u!1 &1361985217
 GameObject:
   m_ObjectHideFlags: 0
@@ -2029,8 +2069,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 1040187391
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.23921569}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

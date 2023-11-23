@@ -11,13 +11,13 @@ public class PushBall : MonoBehaviour
     }
     
     private void OnCollisionEnter2D(Collision2D other) {
-        if(other.transform.CompareTag("Ball")){
-            StartCoroutine(IncreaseForce(other.transform.GetComponent<Rigidbody2D>()));
+        if(other.transform.CompareTag("Racket")){
+            StartCoroutine(IncreaseForce(transform.GetComponent<Rigidbody2D>()));
         }
     }
 
     IEnumerator IncreaseForce(Rigidbody2D rb){
         yield return new WaitForEndOfFrame();
-        rb.AddForce(rb.velocity.normalized * bounceAfterPush * 300);
+        rb.AddForce(rb.velocity.normalized * bounceAfterPush);
     }
 }

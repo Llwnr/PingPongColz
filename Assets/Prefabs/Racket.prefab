@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 589460393669808288}
   - component: {fileID: -8531316745934858108}
   - component: {fileID: 8104416190000866833}
-  - component: {fileID: -3476033624209613340}
   - component: {fileID: 145747524846866013}
+  - component: {fileID: 6315635782500456686}
   m_Layer: 6
   m_Name: Racket
   m_TagString: Racket
@@ -164,19 +164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myPowerups: []
---- !u!114 &-3476033624209613340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 589460393669808301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 034c39824b6635a4c9aa5ac4bd905306, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bounceAfterPush: 0
 --- !u!60 &145747524846866013
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -210,3 +197,24 @@ PolygonCollider2D:
       - {x: 1.5999999, y: -0.20146653}
       - {x: 1.2328858, y: 0.1371624}
       - {x: 0.5985334, y: 0.40000007}
+--- !u!114 &6315635782500456686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 589460393669808301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c578df1cb6e3bc74891e2bd83ccf7352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx:
+    Guid:
+      Data1: -1514430618
+      Data2: 1150944755
+      Data3: 1536425133
+      Data4: 862693028
+    Path: event:/RacketCol
+  colliderTags:
+  - Ball

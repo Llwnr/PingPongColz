@@ -26,6 +26,7 @@ public class RacketMovement : MonoBehaviour
         }else{
             vDir = Input.GetAxisRaw("Vertical");
             hDir = Input.GetAxisRaw("Horizontal");
+            Debug.Log("Test3");
         }
         rb.velocity *= 0.9f;
         rb.AddForce(new Vector2(hDir, vDir) * moveForce * rb.mass);

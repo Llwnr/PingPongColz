@@ -4,10 +4,12 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 using TMPro;
+using FMODUnity;
 
 public class PointsManager : MonoBehaviour
 {
     [SerializeField]private TextMeshProUGUI leftTextbox, rightTextbox;
+    [SerializeField] private EventReference sfx;
     //Singleton class
     public static PointsManager instance{get; private set;}
     private void Awake() {
@@ -53,6 +55,9 @@ public class PointsManager : MonoBehaviour
         }else{
             p2.IncreaseScore();
         }
+
+        //Also play sound
+        SoundPlayer.PlaySound(sfx);
     }
 
     public PlayerPoint GetPlayerPointData(int player){

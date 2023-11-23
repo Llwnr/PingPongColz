@@ -5,26 +5,21 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "IncreaseBallSpeed", menuName = "Powerup/IncreaseBallSpeed", order = 0)]
 public class IncreaseBallSpeed : Powerup
 {
-    private GameObject ball;
-    [SerializeField]private float speedIncrease;
-    private GameObject racket;
+    [SerializeField]private float speedIncrease, pushPower;//Percentage of extra speed. 10 means 10percent extra speed when ball collides
 
     public override void Activate(GameObject racket)
     {
         LoadInitials();
 
-        this.racket = racket;
-        racket.GetComponent<SpriteRenderer>().color = Color.red;
-        ball = GameObject.FindWithTag("Ball");
-        Rigidbody2D rb = ball.GetComponent<Rigidbody2D>();
+        ball.GetComponent<SpriteRenderer>().color = Color.red;
         ball.GetComponent<BallMovement>().SetExtraVelocity(speedIncrease);
-        racket.GetComponent<PushBall>().SetPushPower(1);
+        ball.GetComponent<PushBall>().SetPushPower(pushPower);
     }
 
     public override void Deactivate(GameObject racket)
     {
-        racket.GetComponent<SpriteRenderer>().color = Color.white;
+        ball.GetComponent<SpriteRenderer>().color = Color.white;
         ball.GetComponent<BallMovement>().ResetExtraVelocity();
-        racket.GetComponent<PushBall>().SetPushPower(0);
+        ball.GetComponent<PushBall>().SetPushPower(0);
     }
 }

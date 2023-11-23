@@ -9,8 +9,6 @@ public class BallMovement : MonoBehaviour
     [SerializeField]private float force, maxVelocity;
     private float extraVelocity = 0;
 
-    public float angle;
-
     [SerializeField] private ResetBallPosition resetBallPosition;
 
     private Vector2 lastVelocity;
@@ -31,9 +29,7 @@ public class BallMovement : MonoBehaviour
     {
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxVelocity+extraVelocity);
         lastVelocity = rb.velocity;
-
-        //Don't let ball direction be too vertical
-        //ManageDirection();
+        Debug.Log("Max vel: " + maxVelocity + extraVelocity + " Curr vel: " + rb.velocity.magnitude);
     }
 
     public void SetExtraVelocity(float amt){
@@ -64,7 +60,7 @@ public class BallMovement : MonoBehaviour
         yield return new WaitForEndOfFrame();
         Vector2 dir = rb.velocity;
         float speed = dir.magnitude;
-        angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
 
         //Convert negative angles to positive
         if (Mathf.Sign(angle) == -1) {

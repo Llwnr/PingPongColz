@@ -6,6 +6,8 @@ public abstract class Powerup : ScriptableObject
 {
     [SerializeField]private float duration;
 
+    protected GameObject ball;
+
     private PowerupHolder powerupHolder;
 
     //To remove the powerup once its deactivated
@@ -24,6 +26,6 @@ public abstract class Powerup : ScriptableObject
     public abstract void Deactivate(GameObject racket);
 
     protected void LoadInitials(){
-        
+        ball = GameObject.FindWithTag("Ball");
     }
 }
