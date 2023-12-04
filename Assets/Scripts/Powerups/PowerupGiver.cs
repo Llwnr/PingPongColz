@@ -14,6 +14,7 @@ public class PowerupGiver : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other) {
         //When ball hits the powerup, give the powerup to the racket that last threw the ball
         if(other.transform.CompareTag("Ball")){
+            if (!LastHitRacket.GetLastHitRacket()) return;
             LastHitRacket.GetLastHitRacket().GetComponent<PowerupHolder>().GivePowerupToRacket(myPowerup);
             Destroy(gameObject);
         }

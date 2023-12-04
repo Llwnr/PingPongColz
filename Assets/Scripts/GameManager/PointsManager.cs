@@ -55,6 +55,9 @@ public class PointsManager : MonoBehaviour
         }else{
             p2.IncreaseScore();
         }
+        //Update to database
+        PlayerPrefs.SetInt("p1Score", p1.playerScore);
+        PlayerPrefs.SetInt("p2Score", p2.playerScore);
 
         //Also play sound
         SoundPlayer.PlaySound(sfx);
@@ -73,9 +76,6 @@ public class PointsManager : MonoBehaviour
         if(p1.playerScore > 5 || p2.playerScore > 5){
             //Save score history of who won against who before resetting scores
             SaveScoreHistory();
-            //Reset scores
-            p1.ResetScore();
-            p2.ResetScore();
         }
     }
 

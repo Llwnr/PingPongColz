@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: IncreaseBallSpeed
   m_EditorClassIdentifier: 
   duration: 20
-  speedIncrease: 5
+  speedIncrease: 4
   pushPower: 50

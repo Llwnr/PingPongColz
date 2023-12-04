@@ -25,7 +25,7 @@ public class ResetBallPosition : MonoBehaviour
     [SerializeField]private Transform ball;
 
     [SerializeField]private bool startCountdown = false;
-    [SerializeField]private float countDown;
+    [SerializeField]private float countDown, force;
     private float countDownCounter;
 
     [SerializeField]private TextMeshProUGUI timerBox;
@@ -35,7 +35,7 @@ public class ResetBallPosition : MonoBehaviour
     }
     
     public void ResetPos(){
-        ball.transform.position = new Vector3(0,0);
+        ball.transform.position = new Vector3(0, 0);
         ball.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         //Start timer to make ball start moving after timer ends
         ResetCountdown();
@@ -46,7 +46,7 @@ public class ResetBallPosition : MonoBehaviour
     }
 
     void ThrowBall(){
-        ball.GetComponent<Rigidbody2D>().AddForce(new Vector2(0.7f, 0f)*5000);
+        ball.GetComponent<Rigidbody2D>().AddForce(new Vector2(0.7f, 0f)*force);
     }
 
     void ResetCountdown(){

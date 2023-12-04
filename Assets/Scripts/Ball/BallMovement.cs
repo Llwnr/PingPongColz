@@ -6,12 +6,13 @@ public class BallMovement : MonoBehaviour
 {
     [SerializeField]private Vector2 dir;
     private Rigidbody2D rb;
-    [SerializeField]private float force, maxVelocity;
+    [SerializeField]private float maxVelocity;
     private float extraVelocity = 0;
 
     [SerializeField] private ResetBallPosition resetBallPosition;
 
     private Vector2 lastVelocity;
+    private float stuckDuration = 0;
     // Start is called before the first frame update
 
     private void Awake() {
@@ -28,8 +29,11 @@ public class BallMovement : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxVelocity+extraVelocity);
+        //Set minimum velocity
+        if (rb.velocity.magnitude <= maxVelocity * 0.8f) {
+            rb.velocity = rb.velocity.normalized * maxVelocity * 0.8f;
+        }
         lastVelocity = rb.velocity;
-        Debug.Log("Max vel: " + maxVelocity + extraVelocity + " Curr vel: " + rb.velocity.magnitude);
     }
 
     public void SetExtraVelocity(float amt){
@@ -52,6 +56,28 @@ public class BallMovement : MonoBehaviour
             }
 
             if(other.transform.CompareTag("Racket"))    StartCoroutine(LimitAngle());
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D other) {
+        //Just bounce the ball in another direction vertically
+        if (other.transform.CompareTag("Wall")) {
+            stuckDuration++;
+            if (stuckDuration >= 2) {
+                if(transform.position.y > 0) {
+                    rb.velocity = new Vector2(rb.velocity.x, -0.7f);
+                }
+                else {
+                    rb.velocity = new Vector2(rb.velocity.x, 0.7f);
+                }
+                Debug.Log("Stuck");
+            }
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other) {
+        if (other.transform.CompareTag("Wall")) {
+            stuckDuration = 0;
         }
     }
 
