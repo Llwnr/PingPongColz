@@ -6,13 +6,18 @@ using UnityEngine.UI;
 
 public class ShowGameScore : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI p1Box, p2Box;
+    [SerializeField] private TextMeshProUGUI winBox, loseBox;
     // Start is called before the first frame update
     void Start()
     {
-        p1Box.text = PlayerPrefs.GetString("p1Name");
-        p2Box.text = PlayerPrefs.GetString("p2Name");
-        if (PlayerPrefs.GetInt("p1Score") == 6) p1Box.text += " has won";
-        else p2Box.text += " has won";
+        if (PlayerPrefs.GetInt("p1Score") == 6) {
+            winBox.text = PlayerPrefs.GetString("p1Name");
+            loseBox.text = PlayerPrefs.GetString("p2Name");
+            Debug.Log(1);
+        }
+        else {
+            winBox.text = PlayerPrefs.GetString("p2Name");
+            loseBox.text = PlayerPrefs.GetString("p1Name");
+        }
     }
 }

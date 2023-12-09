@@ -10,37 +10,6 @@ public class LoginManager : MonoBehaviour
     [SerializeField]private TMP_InputField username, password;
     [SerializeField]private PlayersReady playersReadyManager;
     protected string saveFileName = "/UserRegistrationData.txt";
-    //Handles Registration
-    public void StoreCredentials(){
-        string uname = username.text;
-        string pw = password.text;
-
-        //Make/Access the save file to update it
-        RegisterDataHolder registerDataHolder;
-        List<RegisterData> registerDataList;
-        Debug.Log(Application.dataPath + saveFileName);
-        if(File.Exists(Application.dataPath + saveFileName)){
-            string loadedData = File.ReadAllText(Application.dataPath + saveFileName);
-            registerDataHolder = JsonUtility.FromJson<RegisterDataHolder>(loadedData);
-            registerDataList = registerDataHolder.registerDatas.ToList();
-        }else{
-            registerDataHolder = new RegisterDataHolder();
-            registerDataList = new List<RegisterData>();
-        }
-        //Write the data values and add it to the save file
-        RegisterData registerData = new RegisterData{
-            myUsername = uname,
-            myPassword = pw
-        };
-        registerDataList.Add(registerData);
-        //Convert the list into array and set it to register data holder's array
-        registerDataHolder.registerDatas = registerDataList.ToArray();
-        //Then serialize it
-        string json = JsonUtility.ToJson(registerDataHolder);
-        Debug.Log(json);
-        File.WriteAllText(Application.dataPath + saveFileName, json);
-    }
-
     //For verification of user 1
     public void CheckCredentialsP1(){
         if(File.Exists(Application.dataPath + saveFileName)){
@@ -59,8 +28,10 @@ public class LoginManager : MonoBehaviour
                     return;
                 }
             }
-            Debug.Log("Not registered/ Wrong login credentials");
         }
+
+        Debug.Log("Not registered/ Wrong login credentials");
+        transform.parent.GetComponent<LoginErrorAnim>().StartShake();
     }
 
     //For verification of user 2
@@ -80,8 +51,9 @@ public class LoginManager : MonoBehaviour
                     return;
                 }
             }
-            Debug.Log("Not registered/ Wrong login credentials");
         }
+        Debug.Log("Not registered/ Wrong login credentials");
+        transform.parent.GetComponent<LoginErrorAnim>().StartShake();
     }
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Powerup : ScriptableObject
 {
-    [SerializeField]private float duration;
+    [SerializeField]private float origDuration;
 
     protected GameObject ball;
 
@@ -19,11 +19,12 @@ public abstract class Powerup : ScriptableObject
     }
 
     public float GetDuration(){
-        return duration;
+        return origDuration;
     }
 
     public abstract void Activate(GameObject racket);
     public abstract void Deactivate(GameObject racket);
+    public abstract void PlayDeactivationAnim(GameObject racket);
 
     protected void LoadInitials(){
         ball = GameObject.FindWithTag("Ball");

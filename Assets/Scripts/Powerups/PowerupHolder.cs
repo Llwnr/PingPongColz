@@ -65,6 +65,9 @@ public class PowerupHolder : MonoBehaviour, IGotReset
         int myPowerupsCount = myPowerups.Count;
         for(int i=0; i<powerupDuration.Count; i++){
             powerupDuration[i] -= Time.deltaTime;
+            if (powerupDuration[i] < 2f) {
+                myPowerups[i].PlayDeactivationAnim(gameObject);
+            }
             if(powerupDuration[i] <= 0){
                 RemovePowerupFromRacket(i);
                 i--;

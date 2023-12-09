@@ -46,7 +46,7 @@ public class ResetBallPosition : MonoBehaviour
     }
 
     void ThrowBall(){
-        ball.GetComponent<Rigidbody2D>().AddForce(new Vector2(0.7f, 0f)*force);
+        ball.GetComponent<Rigidbody2D>().AddForce(new Vector2(Mathf.Sign(Random.Range(1f,-1f))*0.7f, Random.Range(0.05f, -0.05f))*force);
     }
 
     void ResetCountdown(){

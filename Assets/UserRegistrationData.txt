@@ -1,1 +1,1 @@
-{"registerDatas":[{"myUsername":"samyohang","myPassword":"hello123"},{"myUsername":"asesh","myPassword":"pingpong"},{"myUsername":"llwnr","myPassword":"op"},{"myUsername":"blade_runner","myPassword":"run"}]}
+{"registerDatas":[{"myUsername":"123qwe","myPassword":"11111111"},{"myUsername":"kjh89","myPassword":"hello123"}]}

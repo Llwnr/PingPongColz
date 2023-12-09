@@ -18,7 +18,6 @@ public class PlayersReady : MonoBehaviour
     private void Update() {
         if(p1Ready && p2Ready){
             //Start countdown or sth
-
             //Load level
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
         }

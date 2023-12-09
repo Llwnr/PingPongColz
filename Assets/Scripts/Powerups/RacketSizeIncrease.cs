@@ -22,4 +22,8 @@ public class RacketSizeIncrease : Powerup
         Debug.Log("Powerup deactivated: " + racket.name);
         racket.transform.localScale = origLocalScale;
     }
+
+    public override void PlayDeactivationAnim(GameObject racket) {
+        //racket.GetComponent<Animator>().Play("");
+    }
 }

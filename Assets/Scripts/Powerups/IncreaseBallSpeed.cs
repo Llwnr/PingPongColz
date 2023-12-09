@@ -22,4 +22,8 @@ public class IncreaseBallSpeed : Powerup
         ball.GetComponent<BallMovement>().ResetExtraVelocity();
         ball.GetComponent<PushBall>().SetPushPower(0);
     }
+
+    public override void PlayDeactivationAnim(GameObject racket) {
+        
+    }
 }

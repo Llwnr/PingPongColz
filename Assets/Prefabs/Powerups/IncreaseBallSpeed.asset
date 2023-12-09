@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2599935c9a0bb014bb5ff28468538b08, type: 3}
   m_Name: IncreaseBallSpeed
   m_EditorClassIdentifier: 
-  duration: 20
+  origDuration: 20
   speedIncrease: 4
   pushPower: 50
