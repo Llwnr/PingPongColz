@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: RacketSizeIncrease
   m_EditorClassIdentifier: 
   origDuration: 10
-  buffedSize: {x: 0.85, y: 0.45, z: 0}
+  buffedSize: {x: 0.6, y: 0.36, z: 0}
