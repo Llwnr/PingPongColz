@@ -32,8 +32,8 @@ public class RacketMovement : MonoBehaviour
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxMoveSpeed);
 
         //Gradually stop when releasing keys
-        if(vDir == 0) rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y*0.7f);
-        if(hDir == 0) rb.velocity = new Vector2(rb.velocity.x*0.7f, rb.velocity.y);
+        if(vDir == 0) rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y*0.5f);
+        if(hDir == 0) rb.velocity = new Vector2(rb.velocity.x*0.5f, rb.velocity.y);
 
         //Reduce horizontal velocity always
         rb.velocity = new Vector2(rb.velocity.x*0.85f, rb.velocity.y);

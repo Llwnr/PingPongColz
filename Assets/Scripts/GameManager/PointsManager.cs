@@ -10,6 +10,8 @@ public class PointsManager : MonoBehaviour
 {
     [SerializeField]private TextMeshProUGUI leftTextbox, rightTextbox;
     [SerializeField] private EventReference sfx;
+
+    bool historySaved = false;
     //Singleton class
     public static PointsManager instance{get; private set;}
     private void Awake() {
@@ -73,9 +75,10 @@ public class PointsManager : MonoBehaviour
 
     private void Update() {
         //Check for win
-        if(p1.playerScore > 5 || p2.playerScore > 5){
+        if((p1.playerScore > 5 || p2.playerScore > 5) && !historySaved){
             //Save score history of who won against who before resetting scores
             SaveScoreHistory();
+            historySaved = true;
         }
     }
 

@@ -10,7 +10,7 @@ public class ShowGameScore : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (PlayerPrefs.GetInt("p1Score") == 6) {
+        if (PlayerPrefs.GetInt("p2Score") == 6) {
             winBox.text = PlayerPrefs.GetString("p1Name");
             loseBox.text = PlayerPrefs.GetString("p2Name");
             Debug.Log(1);

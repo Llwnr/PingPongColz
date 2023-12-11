@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class WinManager : MonoBehaviour {
     private PointsManager pointsManager;
+    [SerializeField] private float delayDuration;
     // Start is called before the first frame update
     void Start() {
         pointsManager = GameObject.FindWithTag("GameManager").GetComponent<PointsManager>();
@@ -16,7 +17,13 @@ public class WinManager : MonoBehaviour {
             //Play some win animation
             //Then go to new scene to choose play again or main menu
             Debug.Log("You won");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            
+            StartCoroutine(GoToNextScene());
         }
+    }
+
+    IEnumerator GoToNextScene() {
+        yield return new WaitForSecondsRealtime(delayDuration);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

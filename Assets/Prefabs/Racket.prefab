@@ -137,8 +137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   leftRacket: 1
-  moveForce: 150
-  maxMoveSpeed: 12
+  moveForce: 200
+  maxMoveSpeed: 15
 --- !u!114 &-8531316745934858108
 MonoBehaviour:
   m_ObjectHideFlags: 0
