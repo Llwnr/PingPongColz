@@ -7068,6 +7068,7 @@ GameObject:
   - component: {fileID: 1434843759}
   - component: {fileID: 1434843758}
   - component: {fileID: 1434843761}
+  - component: {fileID: 1434843762}
   m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
@@ -7143,6 +7144,18 @@ MonoBehaviour:
       - m_Target: {fileID: 461076529}
         m_TargetAssemblyTypeName: PlayOnClick, Main
         m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1434843762}
+        m_TargetAssemblyTypeName: Exit, Main
+        m_MethodName: ExitGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7271,6 +7284,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1434843762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434843756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b9121a9be86a6f49836ceb02f87366d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1475867621
 GameObject:
   m_ObjectHideFlags: 0
